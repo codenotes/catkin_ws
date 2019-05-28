@@ -425,6 +425,8 @@ std_srvs/Empty.h
 C:/Users/gbrill/catkin_ws/src/rplidar_ros/src/std_srvs/Empty.h
 rplidar.h
 C:/Users/gbrill/catkin_ws/src/rplidar_ros/src/rplidar.h
+C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h
+-
 
 C:/opt/ros/melodic/x64/include/ros/advertise_options.h
 ros/forwards.h
@@ -10216,5 +10218,21 @@ string
 log4cxx/log4cxx.h
 -
 log4cxx/helpers/transcoder.h
+-
+
+C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h
+functional
+-
+map
+-
+vector
+-
+chrono
+-
+algorithm
+-
+optional
+-
+optional
 -
 

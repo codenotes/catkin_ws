@@ -1010,4 +1010,5 @@ rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.obj: C:\opt\rosdeps\x64\incl
 rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.obj: C:\opt\rosdeps\x64\include\log4cxx\level.h
 rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.obj: C:\opt\rosdeps\x64\include\log4cxx\log4cxx.h
 rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.obj: C:\opt\rosdeps\x64\include\log4cxx\logstring.h
+rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.obj: C:\usr\include\rplidar\RPlidarNeedfullsForDLL.h
 

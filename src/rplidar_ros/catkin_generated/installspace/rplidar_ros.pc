@@ -1,0 +1,8 @@
+prefix=C:/Program Files (x86)/rplidar_ros
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 1.10.0
+Cflags: 
+Libs: -LC:/Program Files (x86)/rplidar_ros/lib 
+Requires: 

@@ -22,7 +22,7 @@ include_directories(
 )
 
 catkin_package()
-add_definitions(-DWIN32 -EHsc)
+add_definitions(-DWIN32 -EHsc -std:c++17 )
 add_executable(rplidarNode src/node.cpp ${RPLIDAR_SDK_SRC})
 target_link_libraries(rplidarNode ${catkin_LIBRARIES})
 

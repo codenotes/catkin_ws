@@ -37,6 +37,12 @@
 #include "std_srvs/Empty.h"
 #include "rplidar.h"
 
+
+
+#include "windows.h"
+#include "C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h"
+
+
 #ifndef _countof
 #define _countof(_Array) (int)(sizeof(_Array) / sizeof(_Array[0]))
 #endif
@@ -179,8 +185,20 @@ static float getAngle(const rplidar_response_measurement_node_hq_t& node)
     return node.angle_z_q14 * 90.f / 16384.f;
 }
 
+INIT_RP_RPLIDAR_PROXY
+
+
 int main(int argc, char * argv[]) {
+	using namespace rp::helpers;
+
     ros::init(argc, argv, "rplidar_node");
+
+#ifdef _DEBUG
+	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Debug\rplidarReader.dll)");
+#else
+	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Release\rplidarReader.dll)");
+#endif
+	RP_INIT_DLL_FUNCTIONS(h);
     
     std::string channel_type;
     std::string tcp_ip;
