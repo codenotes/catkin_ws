@@ -62,7 +62,7 @@ rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.obj: rplidar_ros\CMa
 rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.obj: C:\Users\gbrill\catkin_ws\src\rplidar_ros\src\client.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\gbrill\catkin_ws\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object rplidar_ros/CMakeFiles/rplidarNodeClient.dir/src/client.cpp.obj"
 	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
-	C:\PROGRA~2\MICROS~3\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\cl.exe @<<
+	C:\PROGRA~2\MIB055~1\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\rplidarNodeClient.dir\src\client.cpp.obj /FdCMakeFiles\rplidarNodeClient.dir\ /FS -c C:\Users\gbrill\catkin_ws\src\rplidar_ros\src\client.cpp
 <<
 	cd C:\Users\gbrill\catkin_ws\build
@@ -70,7 +70,7 @@ rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.obj: C:\Users\gbrill
 rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rplidarNodeClient.dir/src/client.cpp.i"
 	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
-	C:\PROGRA~2\MICROS~3\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\cl.exe > CMakeFiles\rplidarNodeClient.dir\src\client.cpp.i @<<
+	C:\PROGRA~2\MIB055~1\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\cl.exe > CMakeFiles\rplidarNodeClient.dir\src\client.cpp.i @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\gbrill\catkin_ws\src\rplidar_ros\src\client.cpp
 <<
 	cd C:\Users\gbrill\catkin_ws\build
@@ -78,7 +78,7 @@ rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.i: cmake_force
 rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rplidarNodeClient.dir/src/client.cpp.s"
 	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
-	C:\PROGRA~2\MICROS~3\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\cl.exe @<<
+	C:\PROGRA~2\MIB055~1\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\rplidarNodeClient.dir\src\client.cpp.s /c C:\Users\gbrill\catkin_ws\src\rplidar_ros\src\client.cpp
 <<
 	cd C:\Users\gbrill\catkin_ws\build
@@ -112,7 +112,7 @@ C:\Users\gbrill\catkin_ws\devel\lib\rplidar_ros\rplidarNodeClient.exe: C:\opt\ro
 C:\Users\gbrill\catkin_ws\devel\lib\rplidar_ros\rplidarNodeClient.exe: rplidar_ros\CMakeFiles\rplidarNodeClient.dir\objects1.rsp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\gbrill\catkin_ws\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable C:\Users\gbrill\catkin_ws\devel\lib\rplidar_ros\rplidarNodeClient.exe"
 	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
-	C:\opt\rosdeps\x64\bin\cmake.exe -E vs_link_exe --intdir=CMakeFiles\rplidarNodeClient.dir --manifests  -- C:\PROGRA~2\MICROS~3\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\rplidarNodeClient.dir\objects1.rsp @<<
+	C:\opt\rosdeps\x64\bin\cmake.exe -E vs_link_exe --intdir=CMakeFiles\rplidarNodeClient.dir --manifests  -- C:\PROGRA~2\MIB055~1\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\rplidarNodeClient.dir\objects1.rsp @<<
  /out:C:\Users\gbrill\catkin_ws\devel\lib\rplidar_ros\rplidarNodeClient.exe /implib:C:\Users\gbrill\catkin_ws\devel\lib\rplidarNodeClient.lib /pdb:C:\Users\gbrill\catkin_ws\devel\lib\rplidar_ros\rplidarNodeClient.pdb /version:0.0  /subsystem:console C:\opt\ros\melodic\x64\lib\roscpp.lib C:\opt\rosdeps\x64\lib\boost_filesystem-vc141-mt-x64-1_66.lib C:\opt\ros\melodic\x64\lib\xmlrpcpp.lib C:\opt\ros\melodic\x64\lib\rosconsole.lib C:\opt\ros\melodic\x64\lib\rosconsole_log4cxx.lib C:\opt\ros\melodic\x64\lib\rosconsole_backend_interface.lib C:\opt\rosdeps\x64\lib\log4cxx.lib C:\opt\rosdeps\x64\lib\boost_regex-vc141-mt-x64-1_66.lib C:\opt\ros\melodic\x64\lib\roscpp_serialization.lib C:\opt\ros\melodic\x64\lib\rostime.lib C:\opt\ros\melodic\x64\lib\cpp_common.lib C:\opt\rosdeps\x64\lib\boost_system-vc141-mt-x64-1_66.lib C:\opt\rosdeps\x64\lib\boost_thread-vc141-mt-x64-1_66.lib C:\opt\rosdeps\x64\lib\boost_chrono-vc141-mt-x64-1_66.lib C:\opt\rosdeps\x64\lib\boost_date_time-vc141-mt-x64-1_66.lib C:\opt\rosdeps\x64\lib\boost_atomic-vc141-mt-x64-1_66.lib C:\opt\rosdeps\x64\lib\console_bridge.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 	cd C:\Users\gbrill\catkin_ws\build
