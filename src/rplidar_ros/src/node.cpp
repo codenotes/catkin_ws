@@ -41,7 +41,9 @@
 
 #include "windows.h"
 #include "C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h"
+#include "c:/usr/include/gregutils/strguple.h"
 
+INIT_STRGUPLE
 
 #ifndef _countof
 #define _countof(_Array) (int)(sizeof(_Array) / sizeof(_Array[0]))
@@ -214,11 +216,31 @@ int main(int argc, char * argv[]) {
     ros::NodeHandle nh;
     ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 1000);
     ros::NodeHandle nh_private("~");
+
+
+
+
     nh_private.param<std::string>("channel_type", channel_type, "serial");
     nh_private.param<std::string>("tcp_ip", tcp_ip, "192.168.0.7"); 
     nh_private.param<int>("tcp_port", tcp_port, 20108);
     nh_private.param<std::string>("serial_port", serial_port, "/dev/ttyUSB0"); 
-    nh_private.param<int>("serial_baudrate", serial_baudrate, 115200/*256000*/);//ros run for A1 A2, change to 256000 if A3
+
+
+#ifdef WIN32
+	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "/dev/ttyUSB0")) {
+		auto sp = rp::RplidarProxy::findRplidarComPort();
+
+		if (sp) {
+			serial_port = *sp;
+		}
+		else
+			ROS_ERROR("serial was type AUTO however didn't find a rplidar attached.");
+
+	}
+#endif
+
+
+    nh_private.param<int>("serial_baudrate", serial_baudrate, 256000);//ros run for A1 A2, change to 256000 if A3
     nh_private.param<std::string>("frame_id", frame_id, "laser_frame");
     nh_private.param<bool>("inverted", inverted, false);
     nh_private.param<bool>("angle_compensate", angle_compensate, false);
