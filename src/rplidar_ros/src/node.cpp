@@ -213,9 +213,12 @@ int main(int argc, char * argv[]) {
     float max_distance = 8.0;
     int angle_compensate_multiple = 1;//it stand of angle compensate at per 1 degree
     std::string scan_mode;
+	std::string topic;
     ros::NodeHandle nh;
-    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 1000);
     ros::NodeHandle nh_private("~");
+
+	nh_private.param<std::string>("topic", topic, "rplidarScan");
+    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
 
 
 
