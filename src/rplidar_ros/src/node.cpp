@@ -193,7 +193,13 @@ INIT_RP_RPLIDAR_PROXY
 int main(int argc, char * argv[]) {
 	using namespace rp::helpers;
 
-    ros::init(argc, argv, "rplidar_node");
+	try {
+		ros::init(argc, argv, "rplidar_node");
+	}
+	catch (...)
+	{
+
+	}
 
 #ifdef _DEBUG
 	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Debug\rplidarReader.dll)");
@@ -230,6 +236,10 @@ int main(int argc, char * argv[]) {
 
 
 #ifdef WIN32
+
+	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
+
+
 	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "/dev/ttyUSB0")) {
 		auto sp = rp::RplidarProxy::findRplidarComPort();
 

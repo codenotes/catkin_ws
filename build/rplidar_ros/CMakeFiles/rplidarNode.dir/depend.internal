@@ -1012,3 +1012,4 @@ rplidar_ros/CMakeFiles/rplidarNode.dir/src/node.cpp.obj
  C:/opt/rosdeps/x64/include/log4cxx/log4cxx.h
  C:/opt/rosdeps/x64/include/log4cxx/logstring.h
  C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h
+ c:/usr/include/gregutils/strguple.h
