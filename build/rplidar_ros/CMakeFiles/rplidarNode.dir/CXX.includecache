@@ -425,7 +425,11 @@ std_srvs/Empty.h
 C:/Users/gbrill/catkin_ws/src/rplidar_ros/src/std_srvs/Empty.h
 rplidar.h
 C:/Users/gbrill/catkin_ws/src/rplidar_ros/src/rplidar.h
+windows.h
+C:/Users/gbrill/catkin_ws/src/rplidar_ros/src/windows.h
 C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h
+-
+c:/usr/include/gregutils/strguple.h
 -
 
 C:/opt/ros/melodic/x64/include/ros/advertise_options.h
@@ -10234,5 +10238,23 @@ algorithm
 optional
 -
 optional
+-
+
+c:/usr/include/gregutils/strguple.h
+tuple
+-
+utility
+-
+type_traits
+-
+iostream
+-
+sstream
+-
+iomanip
+-
+fstream
+-
+vector
 -
 
