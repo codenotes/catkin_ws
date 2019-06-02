@@ -201,13 +201,15 @@ int main(int argc, char * argv[]) {
 
 	}
 
+#ifdef WITH_GREGS_RPLIDAR_DLL
 #ifdef _DEBUG
 	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Debug\rplidarReader.dll)");
 #else
 	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Release\rplidarReader.dll)");
 #endif
 	RP_INIT_DLL_FUNCTIONS(h);
-    
+#endif
+
     std::string channel_type;
     std::string tcp_ip;
     std::string serial_port;
@@ -235,14 +237,18 @@ int main(int argc, char * argv[]) {
     nh_private.param<std::string>("serial_port", serial_port, "/dev/ttyUSB0"); 
 
 
-#ifdef WIN32
+#if defined(WIN32)
 
 	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
-
+	std::optional<std::string> sp;
 
 	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "/dev/ttyUSB0")) {
-		auto sp = rp::RplidarProxy::findRplidarComPort();
 
+#ifdef WITH_GREGS_RPLIDAR_DLL
+		sp = rp::RplidarProxy::findRplidarComPort();
+#else
+		sp = "COM3";
+#endif
 		if (sp) {
 			serial_port = *sp;
 		}
@@ -250,6 +256,8 @@ int main(int argc, char * argv[]) {
 			ROS_ERROR("serial was type AUTO however didn't find a rplidar attached.");
 
 	}
+
+
 #endif
 
 
