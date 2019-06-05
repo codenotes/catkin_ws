@@ -246,7 +246,7 @@ int main(int argc, char * argv[]) {
     nh_private.param<std::string>("channel_type", channel_type, "serial");
     nh_private.param<std::string>("tcp_ip", tcp_ip, "192.168.0.7"); 
     nh_private.param<int>("tcp_port", tcp_port, 20108);
-    nh_private.param<std::string>("serial_port", serial_port, "/dev/ttyUSB0"); 
+    nh_private.param<std::string>("serial_port", serial_port, "COM3"); 
 
 
 #if defined(WIN32)
@@ -254,7 +254,7 @@ int main(int argc, char * argv[]) {
 	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
 	std::optional<std::string> sp;
 
-	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "/dev/ttyUSB0")) {
+	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "COM3")) {
 
 #ifdef WITH_GREGS_RPLIDAR_DLL
 		sp = rp::RplidarProxy::findRplidarComPort();
