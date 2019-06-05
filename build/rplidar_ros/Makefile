@@ -49,10 +49,10 @@ RM = C:\opt\rosdeps\x64\bin\cmake.exe -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\gbrill\catkin_ws\src
+CMAKE_SOURCE_DIR = C:\catkin_ws\src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\gbrill\catkin_ws\build
+CMAKE_BINARY_DIR = C:\catkin_ws\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,18 +126,18 @@ list_install_components\fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	cd C:\Users\gbrill\catkin_ws\build
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\gbrill\catkin_ws\build\CMakeFiles C:\Users\gbrill\catkin_ws\build\rplidar_ros\CMakeFiles\progress.marks
+	cd C:\catkin_ws\build
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\catkin_ws\build\CMakeFiles C:\catkin_ws\build\rplidar_ros\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\all
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\gbrill\catkin_ws\build\CMakeFiles 0
+	cd C:\catkin_ws\build\rplidar_ros
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\catkin_ws\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\clean
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : clean
 
 # The main clean target
@@ -147,30 +147,30 @@ clean\fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\preinstall
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\preinstall
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : preinstall\fast
 
 # clear depends
 depend:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : depend
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\roscpp_generate_messages_cpp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_cpp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\roscpp_generate_messages_cpp.dir\rule
 
 # Convenience name for target.
@@ -180,16 +180,16 @@ roscpp_generate_messages_cpp: rplidar_ros\CMakeFiles\roscpp_generate_messages_cp
 
 # fast build rule for target.
 roscpp_generate_messages_cpp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\roscpp_generate_messages_cpp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_cpp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : roscpp_generate_messages_cpp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\rule
 
 # Convenience name for target.
@@ -199,16 +199,16 @@ rosgraph_msgs_generate_messages_nodejs: rplidar_ros\CMakeFiles\rosgraph_msgs_gen
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_nodejs\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rosgraph_msgs_generate_messages_nodejs\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\roscpp_generate_messages_eus.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_eus.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\roscpp_generate_messages_eus.dir\rule
 
 # Convenience name for target.
@@ -218,16 +218,16 @@ roscpp_generate_messages_eus: rplidar_ros\CMakeFiles\roscpp_generate_messages_eu
 
 # fast build rule for target.
 roscpp_generate_messages_eus\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\roscpp_generate_messages_eus.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_eus.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : roscpp_generate_messages_eus\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\roscpp_generate_messages_lisp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_lisp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\roscpp_generate_messages_lisp.dir\rule
 
 # Convenience name for target.
@@ -237,16 +237,16 @@ roscpp_generate_messages_lisp: rplidar_ros\CMakeFiles\roscpp_generate_messages_l
 
 # fast build rule for target.
 roscpp_generate_messages_lisp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\roscpp_generate_messages_lisp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_lisp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : roscpp_generate_messages_lisp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_py.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_py.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_py.dir\rule
 
 # Convenience name for target.
@@ -256,16 +256,16 @@ geometry_msgs_generate_messages_py: rplidar_ros\CMakeFiles\geometry_msgs_generat
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_py.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_py.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : geometry_msgs_generate_messages_py\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_eus.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_eus.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_eus.dir\rule
 
 # Convenience name for target.
@@ -275,16 +275,16 @@ rosgraph_msgs_generate_messages_eus: rplidar_ros\CMakeFiles\rosgraph_msgs_genera
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_eus\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_eus.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_eus.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rosgraph_msgs_generate_messages_eus\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rplidarNode.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rplidarNode.dir\rule
 
 # Convenience name for target.
@@ -294,16 +294,16 @@ rplidarNode: rplidar_ros\CMakeFiles\rplidarNode.dir\rule
 
 # fast build rule for target.
 rplidarNode\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidarNode\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_nodejs.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_nodejs.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_nodejs.dir\rule
 
 # Convenience name for target.
@@ -313,16 +313,16 @@ geometry_msgs_generate_messages_nodejs: rplidar_ros\CMakeFiles\geometry_msgs_gen
 
 # fast build rule for target.
 geometry_msgs_generate_messages_nodejs\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_nodejs.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_nodejs.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : geometry_msgs_generate_messages_nodejs\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\roscpp_generate_messages_py.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_py.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\roscpp_generate_messages_py.dir\rule
 
 # Convenience name for target.
@@ -332,16 +332,16 @@ roscpp_generate_messages_py: rplidar_ros\CMakeFiles\roscpp_generate_messages_py.
 
 # fast build rule for target.
 roscpp_generate_messages_py\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\roscpp_generate_messages_py.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_py.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : roscpp_generate_messages_py\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\roscpp_generate_messages_nodejs.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_nodejs.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\roscpp_generate_messages_nodejs.dir\rule
 
 # Convenience name for target.
@@ -351,16 +351,16 @@ roscpp_generate_messages_nodejs: rplidar_ros\CMakeFiles\roscpp_generate_messages
 
 # fast build rule for target.
 roscpp_generate_messages_nodejs\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\roscpp_generate_messages_nodejs.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\roscpp_generate_messages_nodejs.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : roscpp_generate_messages_nodejs\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_py.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_py.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_py.dir\rule
 
 # Convenience name for target.
@@ -370,16 +370,16 @@ sensor_msgs_generate_messages_py: rplidar_ros\CMakeFiles\sensor_msgs_generate_me
 
 # fast build rule for target.
 sensor_msgs_generate_messages_py\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_py.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_py.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sensor_msgs_generate_messages_py\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_nodejs.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_nodejs.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_nodejs.dir\rule
 
 # Convenience name for target.
@@ -389,16 +389,16 @@ sensor_msgs_generate_messages_nodejs: rplidar_ros\CMakeFiles\sensor_msgs_generat
 
 # fast build rule for target.
 sensor_msgs_generate_messages_nodejs\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_nodejs.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_nodejs.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sensor_msgs_generate_messages_nodejs\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_cpp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_cpp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_cpp.dir\rule
 
 # Convenience name for target.
@@ -408,16 +408,16 @@ rosgraph_msgs_generate_messages_cpp: rplidar_ros\CMakeFiles\rosgraph_msgs_genera
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_cpp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_cpp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rosgraph_msgs_generate_messages_cpp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_lisp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_lisp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_lisp.dir\rule
 
 # Convenience name for target.
@@ -427,16 +427,16 @@ rosgraph_msgs_generate_messages_lisp: rplidar_ros\CMakeFiles\rosgraph_msgs_gener
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_lisp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_lisp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rosgraph_msgs_generate_messages_lisp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_eus.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_eus.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_eus.dir\rule
 
 # Convenience name for target.
@@ -446,16 +446,16 @@ geometry_msgs_generate_messages_eus: rplidar_ros\CMakeFiles\geometry_msgs_genera
 
 # fast build rule for target.
 geometry_msgs_generate_messages_eus\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_eus.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_eus.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : geometry_msgs_generate_messages_eus\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_py.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_py.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_py.dir\rule
 
 # Convenience name for target.
@@ -465,16 +465,16 @@ rosgraph_msgs_generate_messages_py: rplidar_ros\CMakeFiles\rosgraph_msgs_generat
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_py.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_py.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rosgraph_msgs_generate_messages_py\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\std_msgs_generate_messages_cpp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_cpp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\std_msgs_generate_messages_cpp.dir\rule
 
 # Convenience name for target.
@@ -484,16 +484,16 @@ std_msgs_generate_messages_cpp: rplidar_ros\CMakeFiles\std_msgs_generate_message
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\std_msgs_generate_messages_cpp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_cpp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : std_msgs_generate_messages_cpp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_lisp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_lisp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_lisp.dir\rule
 
 # Convenience name for target.
@@ -503,16 +503,16 @@ sensor_msgs_generate_messages_lisp: rplidar_ros\CMakeFiles\sensor_msgs_generate_
 
 # fast build rule for target.
 sensor_msgs_generate_messages_lisp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_lisp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_lisp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sensor_msgs_generate_messages_lisp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\std_msgs_generate_messages_eus.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_eus.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\std_msgs_generate_messages_eus.dir\rule
 
 # Convenience name for target.
@@ -522,16 +522,16 @@ std_msgs_generate_messages_eus: rplidar_ros\CMakeFiles\std_msgs_generate_message
 
 # fast build rule for target.
 std_msgs_generate_messages_eus\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\std_msgs_generate_messages_eus.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_eus.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : std_msgs_generate_messages_eus\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\std_msgs_generate_messages_lisp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_lisp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\std_msgs_generate_messages_lisp.dir\rule
 
 # Convenience name for target.
@@ -541,16 +541,16 @@ std_msgs_generate_messages_lisp: rplidar_ros\CMakeFiles\std_msgs_generate_messag
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\std_msgs_generate_messages_lisp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_lisp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : std_msgs_generate_messages_lisp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\std_msgs_generate_messages_nodejs.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_nodejs.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\std_msgs_generate_messages_nodejs.dir\rule
 
 # Convenience name for target.
@@ -560,16 +560,16 @@ std_msgs_generate_messages_nodejs: rplidar_ros\CMakeFiles\std_msgs_generate_mess
 
 # fast build rule for target.
 std_msgs_generate_messages_nodejs\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\std_msgs_generate_messages_nodejs.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_nodejs.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : std_msgs_generate_messages_nodejs\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\std_msgs_generate_messages_py.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_py.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\std_msgs_generate_messages_py.dir\rule
 
 # Convenience name for target.
@@ -579,16 +579,16 @@ std_msgs_generate_messages_py: rplidar_ros\CMakeFiles\std_msgs_generate_messages
 
 # fast build rule for target.
 std_msgs_generate_messages_py\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\std_msgs_generate_messages_py.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\std_msgs_generate_messages_py.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : std_msgs_generate_messages_py\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_cpp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_cpp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_cpp.dir\rule
 
 # Convenience name for target.
@@ -598,16 +598,16 @@ sensor_msgs_generate_messages_cpp: rplidar_ros\CMakeFiles\sensor_msgs_generate_m
 
 # fast build rule for target.
 sensor_msgs_generate_messages_cpp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_cpp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_cpp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sensor_msgs_generate_messages_cpp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_eus.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_eus.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_eus.dir\rule
 
 # Convenience name for target.
@@ -617,16 +617,16 @@ sensor_msgs_generate_messages_eus: rplidar_ros\CMakeFiles\sensor_msgs_generate_m
 
 # fast build rule for target.
 sensor_msgs_generate_messages_eus\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_eus.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\sensor_msgs_generate_messages_eus.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sensor_msgs_generate_messages_eus\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_cpp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_cpp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_cpp.dir\rule
 
 # Convenience name for target.
@@ -636,16 +636,16 @@ geometry_msgs_generate_messages_cpp: rplidar_ros\CMakeFiles\geometry_msgs_genera
 
 # fast build rule for target.
 geometry_msgs_generate_messages_cpp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_cpp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_cpp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : geometry_msgs_generate_messages_cpp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_lisp.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_lisp.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_lisp.dir\rule
 
 # Convenience name for target.
@@ -655,16 +655,16 @@ geometry_msgs_generate_messages_lisp: rplidar_ros\CMakeFiles\geometry_msgs_gener
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_lisp.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\geometry_msgs_generate_messages_lisp.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : geometry_msgs_generate_messages_lisp\fast
 
 # Convenience name for target.
 rplidar_ros\CMakeFiles\rplidarNodeClient.dir\rule:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNodeClient.dir\rule
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidar_ros\CMakeFiles\rplidarNodeClient.dir\rule
 
 # Convenience name for target.
@@ -674,9 +674,9 @@ rplidarNodeClient: rplidar_ros\CMakeFiles\rplidarNodeClient.dir\rule
 
 # fast build rule for target.
 rplidarNodeClient\fast:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNodeClient.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNodeClient.dir\build
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : rplidarNodeClient\fast
 
 sdk\src\arch\win32\net_serial.obj: sdk\src\arch\win32\net_serial.cpp.obj
@@ -685,9 +685,9 @@ sdk\src\arch\win32\net_serial.obj: sdk\src\arch\win32\net_serial.cpp.obj
 
 # target to build an object file
 sdk\src\arch\win32\net_serial.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\net_serial.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\net_serial.cpp.obj
 
 sdk\src\arch\win32\net_serial.i: sdk\src\arch\win32\net_serial.cpp.i
@@ -696,9 +696,9 @@ sdk\src\arch\win32\net_serial.i: sdk\src\arch\win32\net_serial.cpp.i
 
 # target to preprocess a source file
 sdk\src\arch\win32\net_serial.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\net_serial.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\net_serial.cpp.i
 
 sdk\src\arch\win32\net_serial.s: sdk\src\arch\win32\net_serial.cpp.s
@@ -707,9 +707,9 @@ sdk\src\arch\win32\net_serial.s: sdk\src\arch\win32\net_serial.cpp.s
 
 # target to generate assembly for a file
 sdk\src\arch\win32\net_serial.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\net_serial.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\net_serial.cpp.s
 
 sdk\src\arch\win32\net_socket.obj: sdk\src\arch\win32\net_socket.cpp.obj
@@ -718,9 +718,9 @@ sdk\src\arch\win32\net_socket.obj: sdk\src\arch\win32\net_socket.cpp.obj
 
 # target to build an object file
 sdk\src\arch\win32\net_socket.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\net_socket.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\net_socket.cpp.obj
 
 sdk\src\arch\win32\net_socket.i: sdk\src\arch\win32\net_socket.cpp.i
@@ -729,9 +729,9 @@ sdk\src\arch\win32\net_socket.i: sdk\src\arch\win32\net_socket.cpp.i
 
 # target to preprocess a source file
 sdk\src\arch\win32\net_socket.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\net_socket.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\net_socket.cpp.i
 
 sdk\src\arch\win32\net_socket.s: sdk\src\arch\win32\net_socket.cpp.s
@@ -740,9 +740,9 @@ sdk\src\arch\win32\net_socket.s: sdk\src\arch\win32\net_socket.cpp.s
 
 # target to generate assembly for a file
 sdk\src\arch\win32\net_socket.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\net_socket.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\net_socket.cpp.s
 
 sdk\src\arch\win32\timer.obj: sdk\src\arch\win32\timer.cpp.obj
@@ -751,9 +751,9 @@ sdk\src\arch\win32\timer.obj: sdk\src\arch\win32\timer.cpp.obj
 
 # target to build an object file
 sdk\src\arch\win32\timer.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\timer.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\timer.cpp.obj
 
 sdk\src\arch\win32\timer.i: sdk\src\arch\win32\timer.cpp.i
@@ -762,9 +762,9 @@ sdk\src\arch\win32\timer.i: sdk\src\arch\win32\timer.cpp.i
 
 # target to preprocess a source file
 sdk\src\arch\win32\timer.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\timer.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\timer.cpp.i
 
 sdk\src\arch\win32\timer.s: sdk\src\arch\win32\timer.cpp.s
@@ -773,9 +773,9 @@ sdk\src\arch\win32\timer.s: sdk\src\arch\win32\timer.cpp.s
 
 # target to generate assembly for a file
 sdk\src\arch\win32\timer.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\arch\win32\timer.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\arch\win32\timer.cpp.s
 
 sdk\src\hal\thread.obj: sdk\src\hal\thread.cpp.obj
@@ -784,9 +784,9 @@ sdk\src\hal\thread.obj: sdk\src\hal\thread.cpp.obj
 
 # target to build an object file
 sdk\src\hal\thread.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\hal\thread.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\hal\thread.cpp.obj
 
 sdk\src\hal\thread.i: sdk\src\hal\thread.cpp.i
@@ -795,9 +795,9 @@ sdk\src\hal\thread.i: sdk\src\hal\thread.cpp.i
 
 # target to preprocess a source file
 sdk\src\hal\thread.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\hal\thread.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\hal\thread.cpp.i
 
 sdk\src\hal\thread.s: sdk\src\hal\thread.cpp.s
@@ -806,9 +806,9 @@ sdk\src\hal\thread.s: sdk\src\hal\thread.cpp.s
 
 # target to generate assembly for a file
 sdk\src\hal\thread.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\hal\thread.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\hal\thread.cpp.s
 
 sdk\src\rplidar_driver.obj: sdk\src\rplidar_driver.cpp.obj
@@ -817,9 +817,9 @@ sdk\src\rplidar_driver.obj: sdk\src\rplidar_driver.cpp.obj
 
 # target to build an object file
 sdk\src\rplidar_driver.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\rplidar_driver.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\rplidar_driver.cpp.obj
 
 sdk\src\rplidar_driver.i: sdk\src\rplidar_driver.cpp.i
@@ -828,9 +828,9 @@ sdk\src\rplidar_driver.i: sdk\src\rplidar_driver.cpp.i
 
 # target to preprocess a source file
 sdk\src\rplidar_driver.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\rplidar_driver.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\rplidar_driver.cpp.i
 
 sdk\src\rplidar_driver.s: sdk\src\rplidar_driver.cpp.s
@@ -839,9 +839,9 @@ sdk\src\rplidar_driver.s: sdk\src\rplidar_driver.cpp.s
 
 # target to generate assembly for a file
 sdk\src\rplidar_driver.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\sdk\src\rplidar_driver.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : sdk\src\rplidar_driver.cpp.s
 
 src\client.obj: src\client.cpp.obj
@@ -850,9 +850,9 @@ src\client.obj: src\client.cpp.obj
 
 # target to build an object file
 src\client.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNodeClient.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : src\client.cpp.obj
 
 src\client.i: src\client.cpp.i
@@ -861,9 +861,9 @@ src\client.i: src\client.cpp.i
 
 # target to preprocess a source file
 src\client.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNodeClient.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : src\client.cpp.i
 
 src\client.s: src\client.cpp.s
@@ -872,9 +872,9 @@ src\client.s: src\client.cpp.s
 
 # target to generate assembly for a file
 src\client.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNodeClient.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNodeClient.dir\src\client.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : src\client.cpp.s
 
 src\node.obj: src\node.cpp.obj
@@ -883,9 +883,9 @@ src\node.obj: src\node.cpp.obj
 
 # target to build an object file
 src\node.cpp.obj:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.obj
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : src\node.cpp.obj
 
 src\node.i: src\node.cpp.i
@@ -894,9 +894,9 @@ src\node.i: src\node.cpp.i
 
 # target to preprocess a source file
 src\node.cpp.i:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.i
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : src\node.cpp.i
 
 src\node.s: src\node.cpp.s
@@ -905,9 +905,9 @@ src\node.s: src\node.cpp.s
 
 # target to generate assembly for a file
 src\node.cpp.s:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(MAKE) -f rplidar_ros\CMakeFiles\rplidarNode.dir\build.make /nologo -$(MAKEFLAGS) rplidar_ros\CMakeFiles\rplidarNode.dir\src\node.cpp.s
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : src\node.cpp.s
 
 # Help Target
@@ -981,8 +981,8 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 .PHONY : cmake_check_build_system
 
