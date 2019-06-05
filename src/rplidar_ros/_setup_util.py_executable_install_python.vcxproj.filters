@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\catkin_generated\add_python_executable\_setup_util.py_executable_install_python\_setup_util.py.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{29A3CBB6-6959-315F-86B6-06B78E1AFD40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

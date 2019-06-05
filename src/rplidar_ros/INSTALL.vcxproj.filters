@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\CMakeFiles\d3b5bc30464e8a03af59570c6e0e5663\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E692D9BA-8FB8-3A12-8254-56194E25E5BD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
