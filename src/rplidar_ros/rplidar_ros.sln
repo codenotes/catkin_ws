@@ -4,7 +4,6 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{DEB6980C-4D1F-3D77-ACFA-AE1154FD3440}"
 	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
 		{C3921082-4676-37AA-B73A-4D9C617025C2} = {C3921082-4676-37AA-B73A-4D9C617025C2}
 		{21CFF739-376E-3924-807F-F51411C0AB26} = {21CFF739-376E-3924-807F-F51411C0AB26}
 		{C548B0DB-497A-3190-AE9C-85B83CBD7BC4} = {C548B0DB-497A-3190-AE9C-85B83CBD7BC4}
@@ -13,175 +12,73 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INSTALL", "INSTALL.vcxproj", "{1929F509-09B7-3909-A8E8-C8E6D9A88F44}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DEB6980C-4D1F-3D77-ACFA-AE1154FD3440} = {DEB6980C-4D1F-3D77-ACFA-AE1154FD3440}
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "run_tests", "RUN_TESTS.vcxproj", "{84E42EA8-FB4B-30CE-8332-B10D2530CD5D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{71CF6CD1-ED0A-35CE-B003-5B68731D130B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_setup_util.py_executable_install_python", "_setup_util.py_executable_install_python.vcxproj", "{C3921082-4676-37AA-B73A-4D9C617025C2}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clean_test_results", "clean_test_results.vcxproj", "{2CACA816-B904-384B-AD30-318C381D6D5A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "download_extra_data", "download_extra_data.vcxproj", "{04710DC5-4FB6-345E-A2D7-DE25487840E9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "doxygen", "doxygen.vcxproj", "{2B2AEE82-5F2A-3745-BC85-E447F3921BFD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "geometry_msgs_generate_messages_cpp", "geometry_msgs_generate_messages_cpp.vcxproj", "{13BDEE02-E60E-39AF-9A56-9D0D0B5BAD88}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "geometry_msgs_generate_messages_eus", "geometry_msgs_generate_messages_eus.vcxproj", "{14C3AABF-21AC-3E42-96ED-01D36270CE2F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "geometry_msgs_generate_messages_lisp", "geometry_msgs_generate_messages_lisp.vcxproj", "{079A075C-2496-303B-B7CB-3293B63B8B84}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "geometry_msgs_generate_messages_nodejs", "geometry_msgs_generate_messages_nodejs.vcxproj", "{87E398B5-16FE-3064-9941-D22CF60C6BAA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "geometry_msgs_generate_messages_py", "geometry_msgs_generate_messages_py.vcxproj", "{5DBA953D-AFA7-3AF2-AC24-0654E6CE2384}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roscpp_generate_messages_cpp", "roscpp_generate_messages_cpp.vcxproj", "{4A8D0D9A-3146-383E-B2F6-F8EC69C9126D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roscpp_generate_messages_eus", "roscpp_generate_messages_eus.vcxproj", "{86BFB71D-5016-34E4-84E7-591C245FEEDB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roscpp_generate_messages_lisp", "roscpp_generate_messages_lisp.vcxproj", "{349EEDB1-FB41-3E3E-BDD3-BD7C36F5E60F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roscpp_generate_messages_nodejs", "roscpp_generate_messages_nodejs.vcxproj", "{9AA54DFD-E178-3740-A3B6-B779DCDD3169}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roscpp_generate_messages_py", "roscpp_generate_messages_py.vcxproj", "{630D9743-4813-3CF0-9CB7-0DD641342AED}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rosgraph_msgs_generate_messages_cpp", "rosgraph_msgs_generate_messages_cpp.vcxproj", "{4AA117F5-FF90-3031-A1FC-837763743B64}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rosgraph_msgs_generate_messages_eus", "rosgraph_msgs_generate_messages_eus.vcxproj", "{7B138FEE-AAD8-3713-88CC-FAC034AD4D9A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rosgraph_msgs_generate_messages_lisp", "rosgraph_msgs_generate_messages_lisp.vcxproj", "{43AC3C19-C9B6-339A-920B-F03A34375525}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rosgraph_msgs_generate_messages_nodejs", "rosgraph_msgs_generate_messages_nodejs.vcxproj", "{C0A27747-1532-35BB-A13A-20D583F699AC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rosgraph_msgs_generate_messages_py", "rosgraph_msgs_generate_messages_py.vcxproj", "{DCC84D01-6880-34C7-89BB-42A18D5C765D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rplidarNode", "rplidarNode.vcxproj", "{21CFF739-376E-3924-807F-F51411C0AB26}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rplidarNodeClient", "rplidarNodeClient.vcxproj", "{C548B0DB-497A-3190-AE9C-85B83CBD7BC4}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sensor_msgs_generate_messages_cpp", "sensor_msgs_generate_messages_cpp.vcxproj", "{EDE857E3-BF84-3E9A-84FC-2BDE163F2349}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sensor_msgs_generate_messages_eus", "sensor_msgs_generate_messages_eus.vcxproj", "{8E1C24FA-28EA-3840-86F6-CF5D1F5357BC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sensor_msgs_generate_messages_lisp", "sensor_msgs_generate_messages_lisp.vcxproj", "{BCC03EE0-5284-31F8-8DDB-B846E8BA8569}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sensor_msgs_generate_messages_nodejs", "sensor_msgs_generate_messages_nodejs.vcxproj", "{F6F74690-E62F-39A3-84C3-0E1A2C4E2E02}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sensor_msgs_generate_messages_py", "sensor_msgs_generate_messages_py.vcxproj", "{442C8895-7327-3ACC-AE54-A9DD142E2C2D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "std_msgs_generate_messages_cpp", "std_msgs_generate_messages_cpp.vcxproj", "{7957B328-6965-31E4-84F3-A87116D40362}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "std_msgs_generate_messages_eus", "std_msgs_generate_messages_eus.vcxproj", "{F9F815CB-A068-3550-9C8D-D76243724EA3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "std_msgs_generate_messages_lisp", "std_msgs_generate_messages_lisp.vcxproj", "{D8BA2F00-5BBC-336C-B725-F7F166C9DA34}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "std_msgs_generate_messages_nodejs", "std_msgs_generate_messages_nodejs.vcxproj", "{57477D94-04A2-3C5D-B946-91811226B51F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "std_msgs_generate_messages_py", "std_msgs_generate_messages_py.vcxproj", "{30F4B920-38FD-3A70-A44D-4A0EDB16D7B0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests.vcxproj", "{D41AA84E-A917-32B5-A2ED-85910EE32B0E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B} = {71CF6CD1-ED0A-35CE-B003-5B68731D130B}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -227,22 +124,6 @@ Global
 		{84E42EA8-FB4B-30CE-8332-B10D2530CD5D}.Release|x64.ActiveCfg = Release|x64
 		{84E42EA8-FB4B-30CE-8332-B10D2530CD5D}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
 		{84E42EA8-FB4B-30CE-8332-B10D2530CD5D}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Debug|Win32.ActiveCfg = Debug|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Debug|Win32.Build.0 = Debug|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Debug|x64.ActiveCfg = Debug|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Debug|x64.Build.0 = Debug|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.MinSizeRel|Win32.ActiveCfg = MinSizeRel|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.MinSizeRel|Win32.Build.0 = MinSizeRel|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Release|Win32.ActiveCfg = Release|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Release|Win32.Build.0 = Release|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Release|x64.ActiveCfg = Release|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.Release|x64.Build.0 = Release|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
-		{71CF6CD1-ED0A-35CE-B003-5B68731D130B}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
 		{C3921082-4676-37AA-B73A-4D9C617025C2}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C3921082-4676-37AA-B73A-4D9C617025C2}.Debug|Win32.Build.0 = Debug|Win32
 		{C3921082-4676-37AA-B73A-4D9C617025C2}.Debug|x64.ActiveCfg = Debug|x64

@@ -402,10 +402,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\ZERO_CHECK.vcxproj">
-      <Project>{71CF6CD1-ED0A-35CE-B003-5B68731D130B}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\ALL_BUILD.vcxproj">
       <Project>{DEB6980C-4D1F-3D77-ACFA-AE1154FD3440}</Project>
       <Name>ALL_BUILD</Name>

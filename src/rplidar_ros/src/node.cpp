@@ -41,7 +41,11 @@
 
 #include "windows.h"
 #include "C:/usr/include/rplidar/RPlidarNeedfullsForDLL.h"
+#include "c:/usr/include/gregutils/strguple.h"
+#include "C:/catkin_ws/devel/include/rplidar_ros/tilter.h"
 
+
+INIT_STRGUPLE
 
 #ifndef _countof
 #define _countof(_Array) (int)(sizeof(_Array) / sizeof(_Array[0]))
@@ -61,6 +65,7 @@ void publish_scan(ros::Publisher *pub,
                   float max_distance,
                   std::string frame_id)
 {
+	SGUP_DEBUGLINE
     static int scan_count = 0;
     sensor_msgs::LaserScan scan_msg;
 
@@ -83,10 +88,12 @@ void publish_scan(ros::Publisher *pub,
     scan_msg.time_increment = scan_time / (double)(node_count-1);
     scan_msg.range_min = 0.15;
     scan_msg.range_max = max_distance;//8.0;
-
+	SGUP_DEBUGLINE
     scan_msg.intensities.resize(node_count);
     scan_msg.ranges.resize(node_count);
     bool reverse_data = (!inverted && reversed) || (inverted && !reversed);
+
+	
     if (!reverse_data) {
         for (size_t i = 0; i < node_count; i++) {
             float read_value = (float) nodes[i].dist_mm_q2/4.0f/1000;
@@ -106,8 +113,9 @@ void publish_scan(ros::Publisher *pub,
             scan_msg.intensities[node_count-1-i] = (float) (nodes[i].quality >> 2);
         }
     }
-
+	SGUP_DEBUGLINE
     pub->publish(scan_msg);
+	SGUP_DEBUGLINE
 }
 
 bool getRPLIDARDeviceInfo(RPlidarDriver * drv)
@@ -188,37 +196,85 @@ static float getAngle(const rplidar_response_measurement_node_hq_t& node)
 INIT_RP_RPLIDAR_PROXY
 
 
+bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Response & res)
+{
+	
+	return true;
+}
+
 int main(int argc, char * argv[]) {
 	using namespace rp::helpers;
 
-    ros::init(argc, argv, "rplidar_node");
+	try {
+		ros::init(argc, argv, "rplidar_node");
+	}
+	catch (...)
+	{
 
+	}
+
+#ifdef WITH_GREGS_RPLIDAR_DLL
 #ifdef _DEBUG
 	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Debug\rplidarReader.dll)");
 #else
 	HMODULE h = LoadLibraryA(R"(C:\repos\lidar\rplidar_sdk\sdk\workspaces\vc10\x64\Release\rplidarReader.dll)");
 #endif
 	RP_INIT_DLL_FUNCTIONS(h);
-    
+#endif
+
     std::string channel_type;
     std::string tcp_ip;
     std::string serial_port;
     int tcp_port = 20108;
-    int serial_baudrate = 115200;
+    int serial_baudrate = 256000;
     std::string frame_id;
     bool inverted = false;
     bool angle_compensate = true;
     float max_distance = 8.0;
     int angle_compensate_multiple = 1;//it stand of angle compensate at per 1 degree
     std::string scan_mode;
+	std::string topic;
     ros::NodeHandle nh;
-    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 1000);
     ros::NodeHandle nh_private("~");
+
+	nh_private.param<std::string>("topic", topic, "rplidarScan");
+    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
+
+
+
+
     nh_private.param<std::string>("channel_type", channel_type, "serial");
     nh_private.param<std::string>("tcp_ip", tcp_ip, "192.168.0.7"); 
     nh_private.param<int>("tcp_port", tcp_port, 20108);
     nh_private.param<std::string>("serial_port", serial_port, "/dev/ttyUSB0"); 
-    nh_private.param<int>("serial_baudrate", serial_baudrate, 115200/*256000*/);//ros run for A1 A2, change to 256000 if A3
+
+
+#if defined(WIN32)
+
+	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
+	std::optional<std::string> sp;
+
+	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "/dev/ttyUSB0")) {
+
+#ifdef WITH_GREGS_RPLIDAR_DLL
+		sp = rp::RplidarProxy::findRplidarComPort();
+#else
+		sp = "COM3";
+#endif
+		if (sp) {
+			serial_port = *sp;
+			SG2(serial_port,topic);
+		}
+		else
+			ROS_ERROR("serial was type AUTO however didn't find a rplidar attached.");
+
+	}
+
+
+#endif
+
+
+    nh_private.param<int>("serial_baudrate", serial_baudrate, 256000);//ros run for A1 A2, change to 256000 if A3
     nh_private.param<std::string>("frame_id", frame_id, "laser_frame");
     nh_private.param<bool>("inverted", inverted, false);
     nh_private.param<bool>("angle_compensate", angle_compensate, false);
@@ -258,8 +314,8 @@ int main(int argc, char * argv[]) {
             RPlidarDriver::DisposeDriver(drv);
             return -1;
         }
-
-    }
+		 
+    } 
     
     // get rplidar device info
     if (!getRPLIDARDeviceInfo(drv)) {
@@ -274,6 +330,9 @@ int main(int argc, char * argv[]) {
 
     ros::ServiceServer stop_motor_service = nh.advertiseService("stop_motor", stop_motor);
     ros::ServiceServer start_motor_service = nh.advertiseService("start_motor", start_motor);
+
+	ros::ServiceServer service = nh.advertiseService("tilter", tiltercommand);
+
 
     drv->startMotor();
 
