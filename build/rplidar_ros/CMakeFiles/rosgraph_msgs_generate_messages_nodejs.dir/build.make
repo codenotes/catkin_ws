@@ -44,10 +44,10 @@ RM = C:\opt\rosdeps\x64\bin\cmake.exe -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\gbrill\catkin_ws\src
+CMAKE_SOURCE_DIR = C:\catkin_ws\src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\gbrill\catkin_ws\build
+CMAKE_BINARY_DIR = C:\catkin_ws\build
 
 # Utility rule file for rosgraph_msgs_generate_messages_nodejs.
 
@@ -64,12 +64,12 @@ rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\build: rosgrap
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\build
 
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\clean:
-	cd C:\Users\gbrill\catkin_ws\build\rplidar_ros
+	cd C:\catkin_ws\build\rplidar_ros
 	$(CMAKE_COMMAND) -P CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\cmake_clean.cmake
-	cd C:\Users\gbrill\catkin_ws\build
+	cd C:\catkin_ws\build
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\clean
 
 rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" C:\Users\gbrill\catkin_ws\src C:\Users\gbrill\catkin_ws\src\rplidar_ros C:\Users\gbrill\catkin_ws\build C:\Users\gbrill\catkin_ws\build\rplidar_ros C:\Users\gbrill\catkin_ws\build\rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" C:\catkin_ws\src C:\catkin_ws\src\rplidar_ros C:\catkin_ws\build C:\catkin_ws\build\rplidar_ros C:\catkin_ws\build\rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : rplidar_ros\CMakeFiles\rosgraph_msgs_generate_messages_nodejs.dir\depend
 

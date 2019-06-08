@@ -6,5 +6,5 @@ CXX_FLAGS =   /D _VARIADIC_MAX=10 -EHsc -std:c++17 /Zc:__cplusplus
 
 CXX_DEFINES = -DNOMINMAX -DNO_STRICT -DQ_NOWINSTRICT -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"rplidar_ros\" -DWIN32 -DWIN32_LEAN_AND_MEAN -D_USE_MATH_DEFINES
 
-CXX_INCLUDES = -IC:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include -IC:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src -IC:\opt\ros\melodic\x64\include -IC:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp -IC:\opt\rosdeps\x64\include\boost-1_66 -IC:\opt\rosdeps\x64\include 
+CXX_INCLUDES = -IC:\catkin_ws\src\rplidar_ros\.\sdk\include -IC:\catkin_ws\src\rplidar_ros\.\sdk\src -IC:\opt\ros\melodic\x64\include -IC:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp -IC:\opt\rosdeps\x64\include\boost-1_66 -IC:\opt\rosdeps\x64\include 
 

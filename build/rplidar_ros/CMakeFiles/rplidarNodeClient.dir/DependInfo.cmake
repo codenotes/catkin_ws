@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/gbrill/catkin_ws/src/rplidar_ros/src/client.cpp" "C:/Users/gbrill/catkin_ws/build/rplidar_ros/CMakeFiles/rplidarNodeClient.dir/src/client.cpp.obj"
+  "C:/catkin_ws/src/rplidar_ros/src/client.cpp" "C:/catkin_ws/build/rplidar_ros/CMakeFiles/rplidarNodeClient.dir/src/client.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 
@@ -23,8 +23,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "C:/Users/gbrill/catkin_ws/src/rplidar_ros/./sdk/include"
-  "C:/Users/gbrill/catkin_ws/src/rplidar_ros/./sdk/src"
+  "C:/catkin_ws/src/rplidar_ros/./sdk/include"
+  "C:/catkin_ws/src/rplidar_ros/./sdk/src"
   "C:/opt/ros/melodic/x64/include"
   "C:/opt/ros/melodic/x64/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "C:/opt/rosdeps/x64/include/boost-1_66"
