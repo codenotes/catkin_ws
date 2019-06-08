@@ -292,10 +292,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\ZERO_CHECK.vcxproj">
-      <Project>{71CF6CD1-ED0A-35CE-B003-5B68731D130B}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\_setup_util.py_executable_install_python.vcxproj">
       <Project>{C3921082-4676-37AA-B73A-4D9C617025C2}</Project>
       <Name>_setup_util.py_executable_install_python</Name>

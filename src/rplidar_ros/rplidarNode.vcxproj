@@ -135,7 +135,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include;C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src;C:\opt\ros\melodic\x64\include;C:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp;C:\opt\rosdeps\x64\include\boost-1_66;C:\opt\rosdeps\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include;C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src;C:\opt\ros\melodic\x64\include;C:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp;C:\opt\rosdeps\x64\include\boost-1_66;C:\opt\rosdeps\x64\include;C:\catkin_ws\devel\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -270,7 +270,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include;C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src;C:\opt\ros\melodic\x64\include;C:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp;C:\opt\rosdeps\x64\include\boost-1_66;C:\opt\rosdeps\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include;C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src;C:\opt\ros\melodic\x64\include;C:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp;C:\opt\rosdeps\x64\include\boost-1_66;C:\opt\rosdeps\x64\include;C:\catkin_ws\devel\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -600,6 +600,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\gbrill\catkin_ws\src\rplidar_ros\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -609,12 +612,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\sdk\src\arch\win32\timer.cpp" />
     <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\sdk\src\hal\thread.cpp" />
     <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\sdk\src\rplidar_driver.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\ZERO_CHECK.vcxproj">
-      <Project>{71CF6CD1-ED0A-35CE-B003-5B68731D130B}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

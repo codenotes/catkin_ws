@@ -288,7 +288,7 @@ xmlrpcpp_DIR:PATH=C:/opt/ros/melodic/x64/share/xmlrpcpp/cmake
 ########################
 
 //catkin environment
-CATKIN_ENV:INTERNAL=C:/Users/gbrill/catkin_ws/src/rplidar_ros/catkin_generated/env_cached.bat
+CATKIN_ENV:INTERNAL=
 CATKIN_TEST_RESULTS_DIR:INTERNAL=C:/Users/gbrill/catkin_ws/src/rplidar_ros/test_results
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/gbrill/catkin_ws/src/rplidar_ros

@@ -1,2 +1,2 @@
 rplidar_ros
--DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=C:\Users\gbrill\catkin_ws\devel -DCMAKE_INSTALL_PREFIX=C:\Users\gbrill\catkin_ws\install -G NMake Makefiles
+-DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=C:\catkin_ws\devel -DCMAKE_INSTALL_PREFIX=C:\catkin_ws\install -G NMake Makefiles

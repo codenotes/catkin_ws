@@ -408,12 +408,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <None Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\CMakeFiles\clean_test_results" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\ZERO_CHECK.vcxproj">
-      <Project>{71CF6CD1-ED0A-35CE-B003-5B68731D130B}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
