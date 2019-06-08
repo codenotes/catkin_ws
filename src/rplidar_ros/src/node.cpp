@@ -195,10 +195,32 @@ static float getAngle(const rplidar_response_measurement_node_hq_t& node)
 
 INIT_RP_RPLIDAR_PROXY
 
+#include <functional>
 
 bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Response & res)
 {
+
+	std::function<void(void)> fnAbsoluteTilt= [&]() {
+		SG2("tilt lambda called, command:", req.command)
+
+			res.result = "OK";
+	};
+
+	std::map<std::string, decltype(fnAbsoluteTilt) > fmap
+		= {
+		{"tilt",fnAbsoluteTilt}
 	
+	};
+
+	try {
+		fmap[req.command]();
+	}
+	catch (...) {
+		SG2("called tiltercommane with not recognized, error:", req.command);
+	}
+	   
+
+
 	return true;
 }
 
@@ -234,9 +256,10 @@ int main(int argc, char * argv[]) {
     int angle_compensate_multiple = 1;//it stand of angle compensate at per 1 degree
     std::string scan_mode;
 	std::string topic;
+	std::optional<std::string> tilter_sp;
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
-
+	std::string tilter_serial_port;
 	nh_private.param<std::string>("topic", topic, "rplidarScan");
     ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
 
@@ -247,6 +270,7 @@ int main(int argc, char * argv[]) {
     nh_private.param<std::string>("tcp_ip", tcp_ip, "192.168.0.7"); 
     nh_private.param<int>("tcp_port", tcp_port, 20108);
     nh_private.param<std::string>("serial_port", serial_port, "COM3"); 
+	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, "COM3");
 
 
 #if defined(WIN32)
@@ -254,10 +278,12 @@ int main(int argc, char * argv[]) {
 	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
 	std::optional<std::string> sp;
 
-	if (STRGUPLE::helpers::is_in(serial_port,"AUTO", "COM3")) {
+	if (STRGUPLE::helpers::is_in(serial_port,"AUTO")) {
 
 #ifdef WITH_GREGS_RPLIDAR_DLL
-		sp = rp::RplidarProxy::findRplidarComPort();
+		sp = rp::RplidarProxy::findRplidarComPort(); //silicon
+		tilter_sp = rp::RplidarProxy::findRplidarComPort("Arduino"); 
+
 #else
 		sp = "COM3";
 #endif
@@ -267,6 +293,16 @@ int main(int argc, char * argv[]) {
 		}
 		else
 			ROS_ERROR("serial was type AUTO however didn't find a rplidar attached.");
+
+		if (tilter_sp) {
+			
+			SG2("tilter serial port found:",*tilter_sp);
+			tilter_serial_port = *tilter_sp;
+		}
+		else
+		{
+			SG2("tilter serial port NOT found. Not defaulting, assuming no tilter.");
+		}
 
 	}
 
