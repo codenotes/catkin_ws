@@ -19,3 +19,7 @@
 *.exp
 *.iobj
 *.ipdb
+*.db-shm
+*.db-wal
+*.tlog
+*.obj
