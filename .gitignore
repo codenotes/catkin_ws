@@ -23,3 +23,5 @@
 *.db-wal
 *.tlog
 *.obj
+/src/rplidar_ros/.vs/rplidar_ros/v15/*.db-wal
+/src/rplidar_ros/.vs/rplidar_ros/v15/*.db
