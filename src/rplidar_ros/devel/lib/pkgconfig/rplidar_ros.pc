@@ -1,0 +1,8 @@
+prefix=C:/Users/gbrill/catkin_ws/src/rplidar_ros/devel
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 1.10.0
+Cflags: 
+Libs: -LC:/Users/gbrill/catkin_ws/src/rplidar_ros/devel/lib 
+Requires: 
