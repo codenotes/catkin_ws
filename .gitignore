@@ -19,3 +19,8 @@
 *.exp
 *.iobj
 *.ipdb
+*.db
+src/rplidar_ros/.vs/rplidar_ros/v15/Solution.VC.db
+src/rplidar_ros/.vs/rplidar_ros/v15/Solution.VC.db
+/src/rplidar_ros/.vs
+/src/rplidar_ros/x64

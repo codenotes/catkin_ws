@@ -35,6 +35,7 @@
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
 #include "std_srvs/Empty.h"
+#include "sensor_msgs/Imu.h"
 #include "rplidar.h"
 
 
@@ -44,6 +45,7 @@
 #include "c:/usr/include/gregutils/strguple.h"
 #include "C:/catkin_ws/devel/include/rplidar_ros/tilter.h"
 
+#include "C:/usr/include/WIT/WITReader.h"
 
 INIT_STRGUPLE
 
@@ -224,6 +226,48 @@ bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Respo
 	return true;
 }
 
+
+//WITAsio::cbtAngles
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+
+void anglecb(WITAsio::Angles & a) {
+
+	sensor_msgs::Imu im;
+	tf2::Quaternion myQuaternion;
+	
+	myQuaternion.setRPY(a.roll, a.pitch,a.yaw);
+	myQuaternion.normalize();
+
+	tf2::convert(im.orientation, myQuaternion);
+
+	/*im.orientation.w = myQuaternion.getW();
+	im.orientation.x = myQuaternion.getX();
+	im.orientation.y = myQuaternion.getY();
+	im.orientation.z = myQuaternion.getZ();*/
+
+	im.orientation_covariance[0] = -1;
+
+	//publish it?
+	
+	//im.orientation
+
+
+}
+
+void test1() {
+
+
+	WITAsio ws("COM8");
+
+	WITAsio::cbtAngles cb{ anglecb };
+	
+
+	
+
+}
+
+
 int main(int argc, char * argv[]) {
 	using namespace rp::helpers;
 
@@ -256,6 +300,7 @@ int main(int argc, char * argv[]) {
     int angle_compensate_multiple = 1;//it stand of angle compensate at per 1 degree
     std::string scan_mode;
 	std::string topic;
+	std::string witDevicePort;
 	std::optional<std::string> tilter_sp;
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
@@ -271,6 +316,7 @@ int main(int argc, char * argv[]) {
     nh_private.param<int>("tcp_port", tcp_port, 20108);
     nh_private.param<std::string>("serial_port", serial_port, "COM3"); 
 	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, "COM3");
+	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, "COM8");
 
 
 #if defined(WIN32)
