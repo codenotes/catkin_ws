@@ -58,6 +58,9 @@ INIT_STRGUPLE
 using namespace rp::standalone::rplidar;
 
 RPlidarDriver * drv = NULL;
+ros::Publisher sp_pub_WIT;
+std::shared_ptr<WITAsio> sp_ws;
+boost::thread * threadWIT = nullptr;
 
 void publish_scan(ros::Publisher *pub,
                   rplidar_response_measurement_node_hq_t *nodes,
@@ -249,18 +252,23 @@ void anglecb(WITAsio::Angles & a) {
 	im.orientation_covariance[0] = -1;
 
 	//publish it?
-	
-	//im.orientation
+	sp_pub_WIT.publish(im);
 
+	//im.orientation
+	ros::spinOnce();
 
 }
 
-void test1() {
+auto spinWITReader(std::string comWIT) {
 
 
-	WITAsio ws("COM8");
+	sp_ws.reset( new WITAsio(comWIT));
 
-	WITAsio::cbtAngles cb{ anglecb };
+//	WITAsio::cbtAngles cb{ anglecb };
+
+	sp_ws->cbAngles = anglecb;
+
+	return sp_ws->runThreaded();
 	
 
 	
@@ -300,13 +308,19 @@ int main(int argc, char * argv[]) {
     int angle_compensate_multiple = 1;//it stand of angle compensate at per 1 degree
     std::string scan_mode;
 	std::string topic;
+	std::string topicWIT;
 	std::string witDevicePort;
 	std::optional<std::string> tilter_sp;
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
 	std::string tilter_serial_port;
+	bool useWIT ;
+	
 	nh_private.param<std::string>("topic", topic, "rplidarScan");
-    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
+	nh_private.param<std::string>("topicWIT", topicWIT, "rplidarWIT");
+    
+	ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
+	sp_pub_WIT = nh.advertise<sensor_msgs::LaserScan>(topicWIT, 1000);
 
 
 
@@ -317,6 +331,8 @@ int main(int argc, char * argv[]) {
     nh_private.param<std::string>("serial_port", serial_port, "COM3"); 
 	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, "COM3");
 	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, "COM8");
+	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, "COM8");
+	nh_private.param<bool>("useWIT", useWIT, false);
 
 
 #if defined(WIN32)
@@ -465,6 +481,13 @@ int main(int argc, char * argv[]) {
     ros::Time start_scan_time;
     ros::Time end_scan_time;
     double scan_duration;
+
+
+	if (ros::ok() && useWIT) {
+		threadWIT=spinWITReader(witDevicePort);
+	}
+
+
     while (ros::ok()) {
         rplidar_response_measurement_node_hq_t nodes[360*8];
         size_t   count = _countof(nodes);
@@ -539,6 +562,8 @@ int main(int argc, char * argv[]) {
         ros::spinOnce();
     }
 
+	if(threadWIT)
+		threadWIT->interrupt();
     // done!
     drv->stop();
     drv->stopMotor();
