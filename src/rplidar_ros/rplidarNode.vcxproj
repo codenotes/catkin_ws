@@ -180,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include;C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src;C:\opt\ros\melodic\x64\include;C:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp;C:\opt\rosdeps\x64\include\boost-1_66;C:\opt\rosdeps\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\include;C:\Users\gbrill\catkin_ws\src\rplidar_ros\.\sdk\src;C:\opt\ros\melodic\x64\include;C:\opt\ros\melodic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp;C:\opt\rosdeps\x64\include\boost-1_66;C:\opt\rosdeps\x64\include;C:\catkin_ws\devel\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -194,7 +194,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_VARIADIC_MAX=10;_USE_MATH_DEFINES;NO_STRICT;NOMINMAX;Q_NOWINSTRICT;WIN32_LEAN_AND_MEAN;ROS_BUILD_SHARED_LIBS=1;ROS_PACKAGE_NAME="rplidar_ros";ROSCONSOLE_BACKEND_LOG4CXX;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_VARIADIC_MAX=10;_USE_MATH_DEFINES;NO_STRICT;NOMINMAX;Q_NOWINSTRICT;WIN32_LEAN_AND_MEAN;ROS_BUILD_SHARED_LIBS=1;ROS_PACKAGE_NAME="rplidar_ros";ROSCONSOLE_BACKEND_LOG4CXX;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions);WITH_GREGS_RPLIDAR_DLL</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
@@ -612,6 +612,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\sdk\src\arch\win32\timer.cpp" />
     <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\sdk\src\hal\thread.cpp" />
     <ClCompile Include="C:\Users\gbrill\catkin_ws\src\rplidar_ros\sdk\src\rplidar_driver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

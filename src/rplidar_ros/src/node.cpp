@@ -46,6 +46,8 @@
 #include "C:/catkin_ws/devel/include/rplidar_ros/tilter.h"
 
 #include "C:/usr/include/WIT/WITReader.h"
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
 INIT_STRGUPLE
 
@@ -60,7 +62,7 @@ using namespace rp::standalone::rplidar;
 RPlidarDriver * drv = NULL;
 ros::Publisher sp_pub_WIT;
 std::shared_ptr<WITAsio> sp_ws;
-boost::thread * threadWIT = nullptr;
+
 
 void publish_scan(ros::Publisher *pub,
                   rplidar_response_measurement_node_hq_t *nodes,
@@ -230,10 +232,8 @@ bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Respo
 }
 
 
-//WITAsio::cbtAngles
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
+//#WITAsio::cbtAngles
 void anglecb(WITAsio::Angles & a) {
 
 	sensor_msgs::Imu im;
@@ -252,32 +252,70 @@ void anglecb(WITAsio::Angles & a) {
 	im.orientation_covariance[0] = -1;
 
 	//publish it?
-	sp_pub_WIT.publish(im);
+	if(WITAsio::isReading()) //this tells me there is a living thread for wit
+		sp_pub_WIT.publish(im);
 
 	//im.orientation
 	ros::spinOnce();
 
 }
 
-auto spinWITReader(std::string comWIT) {
 
 
-	sp_ws.reset( new WITAsio(comWIT));
-
-//	WITAsio::cbtAngles cb{ anglecb };
-
-	sp_ws->cbAngles = anglecb;
-
-	return sp_ws->runThreaded();
-	
-
-	
+void killWITReader(boost::thread * t)
+{
+	if(sp_ws)
+		WITAsio::interrupt();
+		//ideally we should wait, but whatever, let the host worry about it
 
 }
 
 
+void spinWITReader(std::string comWIT) {
+	sp_ws.reset( new WITAsio(comWIT));
+	sp_ws->cbAngles = anglecb;
+	sp_ws->runThreaded();
+}
+
+
+std::string getPort(std::string desc) {
+
+
+	std::map<std::string, std::pair<std::string, std::string> > defaults = {
+		{"serial_port",{"CP210x","COM3"}}, //rplidar
+		{"tilter_serial_port",{"Arduino",""}},
+		{"witdevice_serial_port",{"CH340","COM9"}}
+
+		};
+
+
+#ifdef WITH_GREGS_RPLIDAR_DLL
+	auto p=rp::RplidarProxy::findRplidarComPort(defaults[desc].first); 
+
+	if (p) {
+		//auto s=STRGUPLE(__FUNCTION__, *p);
+		SGUP_ROS_INFO(__FUNCTION__,"returning:", *p);
+		return *p;
+	}
+	else {
+		SGUP_ROS_ERROR(__FUNCTION__, "did not find a port for:", desc);
+		return "COM0";
+	}
+	
+#else
+	
+	return defaults[desc].second;
+
+#endif
+
+}
+
+//C:\catkin_ws\src\rplidar_ros\launch\rplidar_a3.launch
 int main(int argc, char * argv[]) {
 	using namespace rp::helpers;
+
+
+
 
 	try {
 		ros::init(argc, argv, "rplidar_node");
@@ -315,61 +353,41 @@ int main(int argc, char * argv[]) {
     ros::NodeHandle nh_private("~");
 	std::string tilter_serial_port;
 	bool useWIT ;
+	bool useTilter;
+	bool useRplidar;
 	
 	nh_private.param<std::string>("topic", topic, "rplidarScan");
 	nh_private.param<std::string>("topicWIT", topicWIT, "rplidarWIT");
     
 	ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
-	sp_pub_WIT = nh.advertise<sensor_msgs::LaserScan>(topicWIT, 1000);
-
-
 
 
     nh_private.param<std::string>("channel_type", channel_type, "serial");
     nh_private.param<std::string>("tcp_ip", tcp_ip, "192.168.0.7"); 
     nh_private.param<int>("tcp_port", tcp_port, 20108);
-    nh_private.param<std::string>("serial_port", serial_port, "COM3"); 
-	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, "COM3");
-	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, "COM8");
-	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, "COM8");
+
+	//we are looking up serialports even if they not in (commented out) the .launch, getPort will return them
+	//but they will only be opened if the useService corresponding service = true in the .launch file
+    nh_private.param<std::string>("serial_port", serial_port, getPort("serial_port")); 
+	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, getPort("tilter_serial_port"));
+	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, getPort("witDevicePort"));
+	
 	nh_private.param<bool>("useWIT", useWIT, false);
+	nh_private.param<bool>("useTilter", useTilter, false);
+	nh_private.param<bool>("useRplidar", useRplidar, true); //assumed to be true always, not used yet in this src
 
-
-#if defined(WIN32)
-
-	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
-	std::optional<std::string> sp;
-
-	if (STRGUPLE::helpers::is_in(serial_port,"AUTO")) {
-
-#ifdef WITH_GREGS_RPLIDAR_DLL
-		sp = rp::RplidarProxy::findRplidarComPort(); //silicon
-		tilter_sp = rp::RplidarProxy::findRplidarComPort("Arduino"); 
-
-#else
-		sp = "COM3";
-#endif
-		if (sp) {
-			serial_port = *sp;
-			SG2(serial_port,topic);
-		}
-		else
-			ROS_ERROR("serial was type AUTO however didn't find a rplidar attached.");
-
-		if (tilter_sp) {
-			
-			SG2("tilter serial port found:",*tilter_sp);
-			tilter_serial_port = *tilter_sp;
-		}
-		else
-		{
-			SG2("tilter serial port NOT found. Not defaulting, assuming no tilter.");
-		}
+	
+	if (useWIT) {
+		ROS_INFO("Launching WIT reader:%s", witDevicePort.c_str() );
+		sp_pub_WIT = nh.advertise<sensor_msgs::Imu>(topicWIT, 1000);
+		spinWITReader(witDevicePort);
 
 	}
 
+	if (useTilter) {
+		//launch tilter based stuff, nothing here yet though
+	}
 
-#endif
 
 
     nh_private.param<int>("serial_baudrate", serial_baudrate, 256000);//ros run for A1 A2, change to 256000 if A3
@@ -378,7 +396,7 @@ int main(int argc, char * argv[]) {
     nh_private.param<bool>("angle_compensate", angle_compensate, false);
     nh_private.param<std::string>("scan_mode", scan_mode, std::string());
 
-    ROS_INFO("RPLIDAR running on ROS package rplidar_ros. SDK Version:"RPLIDAR_SDK_VERSION"");
+    ROS_INFO("RPLIDAR running on ROS package rplidar_ros. SDK Version:" RPLIDAR_SDK_VERSION);
 
     u_result     op_result;
 
@@ -484,7 +502,7 @@ int main(int argc, char * argv[]) {
 
 
 	if (ros::ok() && useWIT) {
-		threadWIT=spinWITReader(witDevicePort);
+		spinWITReader(witDevicePort);
 	}
 
 
@@ -562,8 +580,8 @@ int main(int argc, char * argv[]) {
         ros::spinOnce();
     }
 
-	if(threadWIT)
-		threadWIT->interrupt();
+	if(WITAsio::isReading())
+		WITAsio::interrupt();
     // done!
     drv->stop();
     drv->stopMotor();

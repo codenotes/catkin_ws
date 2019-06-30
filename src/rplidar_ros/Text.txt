@@ -1,0 +1,36 @@
+
+#if defined(WIN32)
+
+	SGUP_ODSA(__FUNCTION__, "Started rosnode laser scan");
+	std::optional<std::string> sp;
+
+	if (STRGUPLE::helpers::is_in(serial_port,"AUTO")) {
+
+#ifdef WITH_GREGS_RPLIDAR_DLL
+		sp = rp::RplidarProxy::findRplidarComPort(); //silicon
+		tilter_sp = rp::RplidarProxy::findRplidarComPort("Arduino"); 
+
+#else
+		sp = "COM3";
+#endif
+		if (sp) {
+			serial_port = *sp;
+			SG2(serial_port,topic);
+		}
+		else
+			ROS_ERROR("serial was type AUTO however didn't find a rplidar attached.");
+
+		if (tilter_sp) {
+			
+			SG2("tilter serial port found:",*tilter_sp);
+			tilter_serial_port = *tilter_sp;
+		}
+		else
+		{
+			SG2("tilter serial port NOT found. Not defaulting, assuming no tilter.");
+		}
+
+	}
+
+
+#endif
