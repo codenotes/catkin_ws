@@ -286,6 +286,7 @@
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4996</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_VARIADIC_MAX=10;_USE_MATH_DEFINES;NO_STRICT;NOMINMAX;Q_NOWINSTRICT;WIN32_LEAN_AND_MEAN;ROS_BUILD_SHARED_LIBS=1;ROS_PACKAGE_NAME=\"rplidar_ros\";ROSCONSOLE_BACKEND_LOG4CXX;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>

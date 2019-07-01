@@ -1,36 +1,9 @@
 /*
  *  RPLIDAR ROS NODE
- *
- *  Copyright (c) 2009 - 2014 RoboPeak Team
- *  http://www.robopeak.com
- *  Copyright (c) 2014 - 2016 Shanghai Slamtec Co., Ltd.
- *  http://www.slamtec.com
+
  *
  */
-/*
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- */
+
 
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
@@ -278,6 +251,8 @@ void spinWITReader(std::string comWIT) {
 }
 
 
+
+
 std::string getPort(std::string desc) {
 
 
@@ -288,6 +263,12 @@ std::string getPort(std::string desc) {
 
 		};
 
+	auto isThereComInEnv=rp::RplidarProxy::getEnvVar(desc);
+
+	if (isThereComInEnv) {
+		SGUP_ROS_INFO("COM Port exists in ENV:",*isThereComInEnv);
+		return *isThereComInEnv;
+	}
 
 #ifdef WITH_GREGS_RPLIDAR_DLL
 	auto p=rp::RplidarProxy::findRplidarComPort(defaults[desc].first); 
@@ -347,7 +328,7 @@ int main(int argc, char * argv[]) {
     std::string scan_mode;
 	std::string topic;
 	std::string topicWIT;
-	std::string witDevicePort;
+	std::string witdevice_serial_port;
 	std::optional<std::string> tilter_sp;
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
@@ -370,7 +351,7 @@ int main(int argc, char * argv[]) {
 	//but they will only be opened if the useService corresponding service = true in the .launch file
     nh_private.param<std::string>("serial_port", serial_port, getPort("serial_port")); 
 	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, getPort("tilter_serial_port"));
-	nh_private.param<std::string>("witdevice_serial_port", witDevicePort, getPort("witDevicePort"));
+	nh_private.param<std::string>("witdevice_serial_port", witdevice_serial_port, getPort("witdevice_serial_port"));
 	
 	nh_private.param<bool>("useWIT", useWIT, false);
 	nh_private.param<bool>("useTilter", useTilter, false);
@@ -378,9 +359,9 @@ int main(int argc, char * argv[]) {
 
 	
 	if (useWIT) {
-		ROS_INFO("Launching WIT reader:%s", witDevicePort.c_str() );
+		ROS_INFO("Launching WIT reader:%s", witdevice_serial_port.c_str() );
 		sp_pub_WIT = nh.advertise<sensor_msgs::Imu>(topicWIT, 1000);
-		spinWITReader(witDevicePort);
+		spinWITReader(witdevice_serial_port);
 
 	}
 
@@ -502,7 +483,7 @@ int main(int argc, char * argv[]) {
 
 
 	if (ros::ok() && useWIT) {
-		spinWITReader(witDevicePort);
+		spinWITReader(witdevice_serial_port);
 	}
 
 
