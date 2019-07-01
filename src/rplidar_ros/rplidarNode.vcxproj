@@ -194,7 +194,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_VARIADIC_MAX=10;_USE_MATH_DEFINES;NO_STRICT;NOMINMAX;Q_NOWINSTRICT;WIN32_LEAN_AND_MEAN;ROS_BUILD_SHARED_LIBS=1;ROS_PACKAGE_NAME="rplidar_ros";ROSCONSOLE_BACKEND_LOG4CXX;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions);WITH_GREGS_RPLIDAR_DLL</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_VARIADIC_MAX=10;_USE_MATH_DEFINES;NO_STRICT;NOMINMAX;Q_NOWINSTRICT;WIN32_LEAN_AND_MEAN;ROS_BUILD_SHARED_LIBS=1;ROS_PACKAGE_NAME="rplidar_ros";ROSCONSOLE_BACKEND_LOG4CXX;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>

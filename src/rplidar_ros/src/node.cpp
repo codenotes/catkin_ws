@@ -45,7 +45,9 @@ void publish_scan(ros::Publisher *pub,
                   float max_distance,
                   std::string frame_id)
 {
-	SGUP_DEBUGLINE
+
+
+//	SGUP_DEBUGLINE
     static int scan_count = 0;
     sensor_msgs::LaserScan scan_msg;
 
@@ -68,7 +70,7 @@ void publish_scan(ros::Publisher *pub,
     scan_msg.time_increment = scan_time / (double)(node_count-1);
     scan_msg.range_min = 0.15;
     scan_msg.range_max = max_distance;//8.0;
-	SGUP_DEBUGLINE
+//	SGUP_DEBUGLINE
     scan_msg.intensities.resize(node_count);
     scan_msg.ranges.resize(node_count);
     bool reverse_data = (!inverted && reversed) || (inverted && !reversed);
@@ -93,9 +95,9 @@ void publish_scan(ros::Publisher *pub,
             scan_msg.intensities[node_count-1-i] = (float) (nodes[i].quality >> 2);
         }
     }
-	SGUP_DEBUGLINE
+//	SGUP_DEBUGLINE
     pub->publish(scan_msg);
-	SGUP_DEBUGLINE
+//	SGUP_DEBUGLINE
 }
 
 bool getRPLIDARDeviceInfo(RPlidarDriver * drv)
@@ -181,7 +183,7 @@ bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Respo
 {
 
 	std::function<void(void)> fnAbsoluteTilt= [&]() {
-		SG2("tilt lambda called, command:", req.command)
+//		SG2("tilt lambda called, command:", req.command)
 
 			res.result = "OK";
 	};
@@ -196,7 +198,7 @@ bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Respo
 		fmap[req.command]();
 	}
 	catch (...) {
-		SG2("called tiltercommane with not recognized, error:", req.command);
+	//	SG2("called tiltercommane with not recognized, error:", req.command);
 	}
 	   
 
@@ -257,18 +259,18 @@ std::string getPort(std::string desc) {
 
 
 	std::map<std::string, std::pair<std::string, std::string> > defaults = {
-		{"serial_port",{"CP210x","COM3"}}, //rplidar
+		{"rplidar_serial_port",{"CP210x","COM3"}}, //rplidar
 		{"tilter_serial_port",{"Arduino",""}},
 		{"witdevice_serial_port",{"CH340","COM9"}}
 
 		};
 
-	auto isThereComInEnv=rp::RplidarProxy::getEnvVar(desc);
+	//auto isThereComInEnv=rp::RplidarProxy::getEnvVar(desc);
 
-	if (isThereComInEnv) {
-		SGUP_ROS_INFO("COM Port exists in ENV:",*isThereComInEnv);
-		return *isThereComInEnv;
-	}
+	//if (isThereComInEnv) {
+	////	SGUP_ROS_INFO("COM Port exists in ENV:",desc,*isThereComInEnv);
+	//	return *isThereComInEnv;
+	//}
 
 #ifdef WITH_GREGS_RPLIDAR_DLL
 	auto p=rp::RplidarProxy::findRplidarComPort(defaults[desc].first); 
@@ -349,7 +351,7 @@ int main(int argc, char * argv[]) {
 
 	//we are looking up serialports even if they not in (commented out) the .launch, getPort will return them
 	//but they will only be opened if the useService corresponding service = true in the .launch file
-    nh_private.param<std::string>("serial_port", serial_port, getPort("serial_port")); 
+    nh_private.param<std::string>("rplidar_serial_port", serial_port, getPort("rplidar_serial_port")); 
 	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, getPort("tilter_serial_port"));
 	nh_private.param<std::string>("witdevice_serial_port", witdevice_serial_port, getPort("witdevice_serial_port"));
 	
@@ -374,10 +376,15 @@ int main(int argc, char * argv[]) {
     nh_private.param<int>("serial_baudrate", serial_baudrate, 256000);//ros run for A1 A2, change to 256000 if A3
     nh_private.param<std::string>("frame_id", frame_id, "laser_frame");
     nh_private.param<bool>("inverted", inverted, false);
-    nh_private.param<bool>("angle_compensate", angle_compensate, false);
-    nh_private.param<std::string>("scan_mode", scan_mode, std::string());
+    nh_private.param<bool>("angle_compensate", angle_compensate, true);
+    nh_private.param<std::string>("scan_mode", scan_mode, std::string("Sensitivity"));
+
+
+	ROS_INFO("Launching Rplidar reader:%s", serial_port.c_str());
 
     ROS_INFO("RPLIDAR running on ROS package rplidar_ros. SDK Version:" RPLIDAR_SDK_VERSION);
+//	SGUP_ROS_INFO("RP Serial Port:",serial_port );
+
 
     u_result     op_result;
 
@@ -483,8 +490,10 @@ int main(int argc, char * argv[]) {
 
 
 	if (ros::ok() && useWIT) {
+		ROS_INFO("Launching WIT thread");
 		spinWITReader(witdevice_serial_port);
 	}
+
 
 
     while (ros::ok()) {
@@ -496,20 +505,23 @@ int main(int argc, char * argv[]) {
         end_scan_time = ros::Time::now();
         scan_duration = (end_scan_time - start_scan_time).toSec();
 
+
         if (op_result == RESULT_OK) {
             op_result = drv->ascendScanData(nodes, count);
             float angle_min = DEG2RAD(0.0f);
             float angle_max = DEG2RAD(359.0f);
+			//continue;
             if (op_result == RESULT_OK) {
                 if (angle_compensate) {
                     //const int angle_compensate_multiple = 1;
-                    const int angle_compensate_nodes_count = 360*angle_compensate_multiple; 
+                    const int angle_compensate_nodes_count = (360*angle_compensate_multiple)+3;  ///+3 was added because of heap corruption, greg, index was sometimes > than angle_compensate_nodes's size, but by no more than 3 so I think/hope it was a bug
 				   
                     int angle_compensate_offset = 0;
               //      rplidar_response_measurement_node_hq_t  angle_compensate_nodes[angle_compensate_nodes_count]; //greg
-					rplidar_response_measurement_node_hq_t  * angle_compensate_nodes=new rplidar_response_measurement_node_hq_t[angle_compensate_nodes_count];
+					rplidar_response_measurement_node_hq_t  * angle_compensate_nodes=new rplidar_response_measurement_node_hq_t[angle_compensate_nodes_count]; 
+				
                     memset((void*)angle_compensate_nodes, 0, angle_compensate_nodes_count*sizeof(rplidar_response_measurement_node_hq_t));
-
+					//continue;
                     int i = 0, j = 0;
                     for( ; i < count; i++ ) {
                         if (nodes[i].dist_mm_q2 != 0) {
@@ -517,17 +529,28 @@ int main(int argc, char * argv[]) {
                             int angle_value = (int)(angle * angle_compensate_multiple);
                             if ((angle_value - angle_compensate_offset) < 0) angle_compensate_offset = angle_value;
                             for (j = 0; j < angle_compensate_multiple; j++) {
-                                angle_compensate_nodes[angle_value-angle_compensate_offset+j] = nodes[i];
+								//SGUP_ROS_INFO("#nodes:",count, "angle_compensate_nodes index:",(angle_value - angle_compensate_offset + j), "acnc:",angle_compensate_nodes_count, "modes[?]",i);
+								//[ INFO] [1561988250.032671476]: "#nodes:",  1617 , "angle_compensate_nodes index:",  1442 , "acnc:",  1440 , "modes[?]",  1616
+								//angle_compensate_nodes_count=1440, but angle_compensate_nodes[1442] is being called! 
+								if ((angle_value - angle_compensate_offset + j) >= angle_compensate_nodes_count) { 
+								//	SGUP_ROS_WARNING("#nodes:", count, "angle_compensate_nodes index:", (angle_value - angle_compensate_offset + j), "acnc:", angle_compensate_nodes_count, "modes[?]", i);   
+									auto angle_compensate_nodes_index = angle_value - angle_compensate_offset + j;
+									SGUP_ROS_WARN(__LINE__,"angle_compensate_nodes_index[?]", angle_compensate_nodes_index, "sizeof(angle_compensate_nodes):",(sizeof(angle_compensate_nodes) * sizeof(rplidar_response_measurement_node_hq_t)), "angle_compensate_nodes_count:",angle_compensate_nodes_count);
+									continue; }
+								else
+									angle_compensate_nodes[angle_value-angle_compensate_offset+j] = nodes[i]; //this is blowing things up!
                             }
                         }
                     }
+			
+					//SEG FAULT HERE!!! continue;
   
                     publish_scan(&scan_pub, angle_compensate_nodes, angle_compensate_nodes_count,
                              start_scan_time, scan_duration, inverted,
                              angle_min, angle_max, max_distance,
                              frame_id);
 							 
-					delete angle_compensate_nodes;
+					delete [] angle_compensate_nodes;
                 } else {
                     int start_node = 0, end_node = 0;
                     int i = 0;
