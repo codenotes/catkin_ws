@@ -34,7 +34,7 @@ using namespace rp::standalone::rplidar;
 
 RPlidarDriver * drv = NULL;
 ros::Publisher sp_pub_WIT;
-std::shared_ptr<WITAsio> sp_ws;
+WITAsio * sp_ws=nullptr;
 
 
 void publish_scan(ros::Publisher *pub,
@@ -247,9 +247,15 @@ void killWITReader(boost::thread * t)
 
 
 void spinWITReader(std::string comWIT) {
-	sp_ws.reset( new WITAsio(comWIT));
-	sp_ws->cbAngles = anglecb;
-	sp_ws->runThreaded();
+	SGUP_ROS_INFO(__FUNCTION__, "com:", comWIT);
+	try {
+		sp_ws=new WITAsio(comWIT);
+		sp_ws->cbAngles = anglecb;
+		sp_ws->runThreaded();
+	}
+	catch (std::exception &e) {
+		SGUP_ROS_ERROR(e.what());
+	}
 }
 
 
@@ -265,12 +271,12 @@ std::string getPort(std::string desc) {
 
 		};
 
-	//auto isThereComInEnv=rp::RplidarProxy::getEnvVar(desc);
+	auto isThereComInEnv=rp::RplidarProxy::getEnvVar(desc);
 
-	//if (isThereComInEnv) {
-	////	SGUP_ROS_INFO("COM Port exists in ENV:",desc,*isThereComInEnv);
-	//	return *isThereComInEnv;
-	//}
+	if (isThereComInEnv) {
+		SGUP_ROS_INFO("COM Port exists in ENV:",desc,*isThereComInEnv);
+		return *isThereComInEnv;
+	}
 
 #ifdef WITH_GREGS_RPLIDAR_DLL
 	auto p=rp::RplidarProxy::findRplidarComPort(defaults[desc].first); 
@@ -287,6 +293,7 @@ std::string getPort(std::string desc) {
 	
 #else
 	
+	SGUP_ROS_INFO("COM Port exists in local map(didn't use ENV or WMI):", desc, defaults[desc].second);
 	return defaults[desc].second;
 
 #endif
@@ -355,7 +362,7 @@ int main(int argc, char * argv[]) {
 	nh_private.param<std::string>("tilter_serial_port", tilter_serial_port, getPort("tilter_serial_port"));
 	nh_private.param<std::string>("witdevice_serial_port", witdevice_serial_port, getPort("witdevice_serial_port"));
 	
-	nh_private.param<bool>("useWIT", useWIT, false);
+	nh_private.param<bool>("useWIT", useWIT, true);
 	nh_private.param<bool>("useTilter", useTilter, false);
 	nh_private.param<bool>("useRplidar", useRplidar, true); //assumed to be true always, not used yet in this src
 
@@ -494,7 +501,8 @@ int main(int argc, char * argv[]) {
 		spinWITReader(witdevice_serial_port);
 	}
 
-
+	const int angle_compensate_nodes_count = (360 * angle_compensate_multiple) + 3; //greg moved here from original
+	rplidar_response_measurement_node_hq_t  * angle_compensate_nodes = new rplidar_response_measurement_node_hq_t[angle_compensate_nodes_count]; //moved here
 
     while (ros::ok()) {
         rplidar_response_measurement_node_hq_t nodes[360*8];
@@ -514,11 +522,11 @@ int main(int argc, char * argv[]) {
             if (op_result == RESULT_OK) {
                 if (angle_compensate) {
                     //const int angle_compensate_multiple = 1;
-                    const int angle_compensate_nodes_count = (360*angle_compensate_multiple)+3;  ///+3 was added because of heap corruption, greg, index was sometimes > than angle_compensate_nodes's size, but by no more than 3 so I think/hope it was a bug
+//                    const int angle_compensate_nodes_count = (360*angle_compensate_multiple)+3;  ///+3 was added because of heap corruption, greg, index was sometimes > than angle_compensate_nodes's size, but by no more than 3 so I think/hope it was a bug
 				   
                     int angle_compensate_offset = 0;
               //      rplidar_response_measurement_node_hq_t  angle_compensate_nodes[angle_compensate_nodes_count]; //greg
-					rplidar_response_measurement_node_hq_t  * angle_compensate_nodes=new rplidar_response_measurement_node_hq_t[angle_compensate_nodes_count]; 
+			//		rplidar_response_measurement_node_hq_t  * angle_compensate_nodes=new rplidar_response_measurement_node_hq_t[angle_compensate_nodes_count]; 
 				
                     memset((void*)angle_compensate_nodes, 0, angle_compensate_nodes_count*sizeof(rplidar_response_measurement_node_hq_t));
 					//continue;
@@ -543,14 +551,14 @@ int main(int argc, char * argv[]) {
                         }
                     }
 			
-					//SEG FAULT HERE!!! continue;
+	
   
                     publish_scan(&scan_pub, angle_compensate_nodes, angle_compensate_nodes_count,
                              start_scan_time, scan_duration, inverted,
                              angle_min, angle_max, max_distance,
                              frame_id);
 							 
-					delete [] angle_compensate_nodes;
+//					delete [] angle_compensate_nodes;
                 } else {
                     int start_node = 0, end_node = 0;
                     int i = 0;
