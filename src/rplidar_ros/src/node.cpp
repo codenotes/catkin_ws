@@ -21,6 +21,8 @@
 #include "C:/usr/include/WIT/WITReader.h"
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+//#include <tf/LinearMath/Scalar.h>
+//#include <tf/transform_datatypes.h.>
 
 INIT_STRGUPLE
 
@@ -34,7 +36,7 @@ using namespace rp::standalone::rplidar;
 
 RPlidarDriver * drv = NULL;
 ros::Publisher sp_pub_WIT;
-WITAsio * sp_ws=nullptr;
+std::shared_ptr<WITAsio> sp_ws;
 
 
 void publish_scan(ros::Publisher *pub,
@@ -207,22 +209,42 @@ bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Respo
 }
 
 
-
+#define RADTODEG(X)  X*180.0 / M_PI
 //#WITAsio::cbtAngles
 void anglecb(WITAsio::Angles & a) {
+	using namespace std;
+	using namespace tf2;
 
 	sensor_msgs::Imu im;
 	tf2::Quaternion myQuaternion;
+	tf2::Quaternion testQ;
 	
+	//cout << boost::format("\033[%1%;%2%H") % 5 % 70;
+	//printf(BOLDBLUE_DEF "%4.2f\t%4.2f\t%4.2f\t" RESET_DEF, a.roll, a.pitch, a.yaw);
+
+
 	myQuaternion.setRPY(a.roll, a.pitch,a.yaw);
 	myQuaternion.normalize();
 
-	tf2::convert(im.orientation, myQuaternion);
+	tf2::convert( myQuaternion, im.orientation );
+	
 
 	/*im.orientation.w = myQuaternion.getW();
 	im.orientation.x = myQuaternion.getX();
 	im.orientation.y = myQuaternion.getY();
 	im.orientation.z = myQuaternion.getZ();*/
+	
+	
+	tf2::convert(im.orientation, testQ);
+	
+	
+
+	double yaw, pitch, roll;
+	tf2::Matrix3x3 mat(testQ);
+	mat.getEulerYPR(yaw, pitch, roll);
+
+
+	ROS_INFO_THROTTLE(1,"%4.2f\t%4.2f\t"GREEN_DEF"%4.2f"RESET_DEF" -- roll:%4.2f pitch:%4.2f yaw:"GREEN_DEF"%4.2f" RESET_DEF, a.roll, a.pitch, a.yaw,  roll, pitch, RADTODEG(yaw));
 
 	im.orientation_covariance[0] = -1;
 
@@ -248,8 +270,13 @@ void killWITReader(boost::thread * t)
 
 void spinWITReader(std::string comWIT) {
 	SGUP_ROS_INFO(__FUNCTION__, "com:", comWIT);
+
+	if (sp_ws) {
+		SGUP_ROS_WARN(__FUNCTION__, "Wit reader already created?");
+	}
+
 	try {
-		sp_ws=new WITAsio(comWIT);
+		sp_ws.reset(new WITAsio(comWIT));
 		sp_ws->cbAngles = anglecb;
 		sp_ws->runThreaded();
 	}
@@ -367,12 +394,7 @@ int main(int argc, char * argv[]) {
 	nh_private.param<bool>("useRplidar", useRplidar, true); //assumed to be true always, not used yet in this src
 
 	
-	if (useWIT) {
-		ROS_INFO("Launching WIT reader:%s", witdevice_serial_port.c_str() );
-		sp_pub_WIT = nh.advertise<sensor_msgs::Imu>(topicWIT, 1000);
-		spinWITReader(witdevice_serial_port);
-
-	}
+	
 
 	if (useTilter) {
 		//launch tilter based stuff, nothing here yet though
@@ -496,8 +518,10 @@ int main(int argc, char * argv[]) {
     double scan_duration;
 
 
+	//launch the wit reader assuming ros is running and we want wit
 	if (ros::ok() && useWIT) {
-		ROS_INFO("Launching WIT thread");
+		SGUP_ROS_INFO("Launching WIT reader:", witdevice_serial_port);
+		sp_pub_WIT = nh.advertise<sensor_msgs::Imu>(topicWIT, 1000);
 		spinWITReader(witdevice_serial_port);
 	}
 
