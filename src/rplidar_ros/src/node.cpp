@@ -210,6 +210,36 @@ bool tiltercommand(rplidar_ros::tilter::Request &req, rplidar_ros::tilter::Respo
 
 
 #define RADTODEG(X)  X*180.0 / M_PI
+
+//
+double transformIfNegativeDegrees(double &angle) {
+	
+	//is in II or III
+	if (angle < 0) {
+		angle + angle + 360.0;
+	}
+
+	return angle;
+
+}
+
+double pointNorth(double &angle) {
+
+	if (angle > 90.0 && angle < 270.0) {
+		return (angle=angle + 180);
+	}
+
+}
+
+double normalise(const double value, const double start, const double end)
+{
+	const double width = end - start;   // 
+	const double offsetValue = value - start;   // value relative to 0
+
+	return (offsetValue - (floor(offsetValue / width) * width)) + start;
+	// + start to reset back to start of original range
+}
+
 //#WITAsio::cbtAngles
 void anglecb(WITAsio::Angles & a) {
 	using namespace std;
@@ -244,7 +274,24 @@ void anglecb(WITAsio::Angles & a) {
 	mat.getEulerYPR(yaw, pitch, roll);
 
 
-	ROS_INFO_THROTTLE(1,"%4.2f\t%4.2f\t"GREEN_DEF"%4.2f"RESET_DEF" -- roll:%4.2f pitch:%4.2f yaw:"GREEN_DEF"%4.2f" RESET_DEF, a.roll, a.pitch, a.yaw,  roll, pitch, RADTODEG(yaw));
+	double originalYaw=a.yaw;
+	double newYaw = yaw;
+
+	transformIfNegativeDegrees(originalYaw);
+	transformIfNegativeDegrees(newYaw);
+	//pointNorth(originalYaw);
+	//pointNorth(newYaw);
+
+	ROS_INFO_THROTTLE(.5,
+		"%4.2f\t%4.2f\t"
+		GREEN_DEF //original
+		"(%4.2f)->%4.2f"
+		RESET_DEF
+		" -- roll:%4.2f pitch:%4.2f yaw:"
+		GREEN_DEF //new
+		"(%4.2f)->%4.2f"
+		RESET_DEF,
+		a.roll, a.pitch, a.yaw, originalYaw, roll, pitch, newYaw, yaw);
 
 	im.orientation_covariance[0] = -1;
 
