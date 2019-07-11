@@ -7,7 +7,7 @@
   <param name="angle_compensate"    type="bool"   value="true"/>
   <param name="scan_mode"           type="string" value="Sensitivity"/>
   <param name="topic"           	type="string" value="rplidarScan"/>
-  <param name="useWIT"           	type="bool" value="false"/>
+  <param name="useWIT"           	type="bool" value="true"/>
   <param name="useTilter"         type="bool" value="false"/>
   <param name="useRplidar"        	type="bool=" value="true"/>
     <!--by not including the serial ports we are saying the app should look them up automatically-->
