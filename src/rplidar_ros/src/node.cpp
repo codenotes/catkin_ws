@@ -21,6 +21,7 @@
 #include "C:/usr/include/WIT/WITReader.h"
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <std_msgs/Float32.h>
 //#include <tf/LinearMath/Scalar.h>
 //#include <tf/transform_datatypes.h.>
 
@@ -35,7 +36,8 @@ INIT_STRGUPLE
 using namespace rp::standalone::rplidar;
 
 RPlidarDriver * drv = NULL;
-ros::Publisher sp_pub_WIT;
+ros::Publisher sp_pub_WIT_IMU;
+ros::Publisher sp_pub_WIT_Heading;
 std::shared_ptr<WITAsio> sp_ws;
 
 
@@ -243,7 +245,7 @@ double normalise(const double value, const double start, const double end)
 //#WITAsio::cbtAngles
 void anglecb(WITAsio::Angles & a) {
 	using namespace std;
-	using namespace tf2;
+	using namespace tf2; 
 
 	sensor_msgs::Imu im;
 	tf2::Quaternion myQuaternion;
@@ -296,8 +298,12 @@ void anglecb(WITAsio::Angles & a) {
 	im.orientation_covariance[0] = -1;
 
 	//publish it?
-	if(WITAsio::isReading()) //this tells me there is a living thread for wit
-		sp_pub_WIT.publish(im);
+	if (WITAsio::isReading()) //this tells me there is a living thread for wit
+	{
+		sp_pub_WIT_Heading.publish(a.yaw);
+		sp_pub_WIT_IMU.publish(im);
+
+	}
 
 	//im.orientation
 	ros::spinOnce();
@@ -411,6 +417,7 @@ int main(int argc, char * argv[]) {
     std::string scan_mode;
 	std::string topic;
 	std::string topicWIT;
+	std::string topicWITHeading;
 	std::string witdevice_serial_port;
 	std::optional<std::string> tilter_sp;
     ros::NodeHandle nh;
@@ -421,7 +428,8 @@ int main(int argc, char * argv[]) {
 	bool useRplidar;
 	
 	nh_private.param<std::string>("topic", topic, "rplidarScan");
-	nh_private.param<std::string>("topicWIT", topicWIT, "rplidarWIT");
+	nh_private.param<std::string>("topicWIT", topicWIT, "WITIMU");
+	nh_private.param<std::string>("topicWITHeading", topicWITHeading, "WITHeading");
     
 	ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(topic, 1000);
 
@@ -568,7 +576,8 @@ int main(int argc, char * argv[]) {
 	//launch the wit reader assuming ros is running and we want wit
 	if (ros::ok() && useWIT) {
 		SGUP_ROS_INFO("Launching WIT reader:", witdevice_serial_port);
-		sp_pub_WIT = nh.advertise<sensor_msgs::Imu>(topicWIT, 1000);
+		sp_pub_WIT_IMU = nh.advertise<sensor_msgs::Imu>(topicWIT, 1000);
+		sp_pub_WIT_Heading = nh.advertise<std_msgs::Float32>(topicWITHeading, 1000);
 		spinWITReader(witdevice_serial_port);
 	}
 

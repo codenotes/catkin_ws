@@ -10,6 +10,8 @@
   <param name="useWIT"           	type="bool" value="true"/>
   <param name="useTilter"         type="bool" value="false"/>
   <param name="useRplidar"        	type="bool=" value="true"/>
+  <param name="topicWITHeading"           	type="string" value="WITHeading"/>
+    <param name="topicWITIMU"           	type="string" value="WITIMU"/>
     <!--by not including the serial ports we are saying the app should look them up automatically-->
     <!--include them only if you want to hard code the port (unlikely)-->
     <!--ports will be looked up automatically (envars or WMI) if the useService is true-->
